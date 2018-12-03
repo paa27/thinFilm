@@ -1,3 +1,5 @@
+%this fucntion needs the x vector, solution vector, h spacing of whole
+%grid, and b
 function f = num_der(x,y,h,b)
 %expand the vector with ones and the b values at the end (used 100 ghost points on each side)
 o = ones(1,100);

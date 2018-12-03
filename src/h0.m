@@ -1,9 +1,9 @@
 %ho solver
 m=0;
-x = linspace(0,10,10000);
-t = [0 0.005 0.01 0.05 0.1 0.5 1 1.5 2];
+x = linspace(0,10,1000);
+t = linspace(0,2,10);
 
-sol = pdepe(m,@pdefun,@icfun,@bcfun,x,t);
+%sol = pdepe(m,@pdefun,@icfun,@bcfun,x,t);
 
 for i=1:length(t)
     hold on
@@ -11,10 +11,10 @@ for i=1:length(t)
 end 
 
 function [c,f,s] = pdefun(x,t,u,DuDx)
-D=5;
+D=1.5;
 c=[0;1];
-f=[-1 1;-u(2).^3 u(2).^3*D]*DuDx+[0;-u(2).^3];
-s=[0;0];
+f=[0 1;-u(2).^3 u(2).^3*D]*DuDx+[0;-u(2).^3];
+s=[-1;0].*u;
 end
 
 function u0 = icfun(x)

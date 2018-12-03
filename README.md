@@ -1,2 +1,3 @@
 # thinFilm
-Numerical solution of a thin film problem
+Numerical stability analysis for a thin film problem
+MATH CAPSTONE project, NJIT

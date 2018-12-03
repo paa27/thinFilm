@@ -1,15 +1,18 @@
 %ho solver
-clear all;
+clear all
 m=0;
 global b;
 b = .1;
 global xend;
 xend = 20;
 
-x = linspace(0,xend,400);
+x = linspace(0,xend,200);
 t = linspace(0,10,10);
 
 sol = pdepe(m,@pdefun,@icfun,@bcfun,x,t);
+saved_sol = sol(7,:,2);
+
+save('/Users/Pablo/Documents/Repos/thinFilm/src/h0.mat','saved_sol')
 
 for i=1:length(t)
     hold on

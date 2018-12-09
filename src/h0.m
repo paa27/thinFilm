@@ -4,13 +4,14 @@ m=0;
 global b;
 b = .1;
 global xend;
-xend = 20;
+xend = 30;
 
-x = linspace(0,xend,200);
+x = linspace(0,xend,1000);
 t = linspace(0,10,10);
 
-sol = pdepe(m,@pdefun,@icfun,@bcfun,x,t);
-saved_sol = sol(7,:,2);
+options = odeset('AbsTol',1e-4);
+sol = pdepe(m,@pdefun,@icfun,@bcfun,x,t,options);
+saved_sol = sol(10,:,2);
 
 save('/Users/Pablo/Documents/Repos/thinFilm/src/h0.mat','saved_sol')
 
